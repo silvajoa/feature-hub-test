@@ -1,0 +1,27 @@
+{
+  "name": "feature-hub-test",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@feature-hub/core": "^2.9.0",
+    "@feature-hub/module-loader-amd": "^2.9.0",
+    "@feature-hub/react": "^2.10.0",
+    "copy-webpack-plugin": "^10.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.66.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.10",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "webpack-cli": "^4.9.1"
+  }
+}
