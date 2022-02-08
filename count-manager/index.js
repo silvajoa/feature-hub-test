@@ -3,6 +3,7 @@ export const countManagerDefinition = {
 
     create: (env) => {
         let count = 0;
+        const listeners = new Set();
 
         const v1 = (consumerId) => ({
             featureService: {
@@ -22,17 +23,17 @@ export const countManagerDefinition = {
                 },
 
                 subscribe(listener) {
-                    this.listeners.add(listener);
+                    listeners.add(listener);
                     console.log('subscribe:', this);
 
-                    return () => this.listeners.delete(listener);
+                    return () => listeners.delete(listener);
                 },
 
                 listeners: new Set(),
 
                 notifyListeners() {
-                    console.log('notifyListeners:', this.listeners);
-                    this.listeners.forEach((listener) => listener());
+                    console.log('notifyListeners:', listeners);
+                    listeners.forEach((listener) => listener());
                 }
             },
         });
