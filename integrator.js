@@ -6,7 +6,7 @@ import * as ReactDOM from 'react-dom';
 import {countManagerDefinition} from "./count-manager";
 
 const {featureAppManager} = createFeatureHub('test:countmvc-integrator', {
-    featureServiceDefinitions: [countManagerDefinition],
+    featureServiceDefinitions: [countManagerDefinition], // {id, create}
     moduleLoader: loadAmdModule,
 });
 
