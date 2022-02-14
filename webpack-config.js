@@ -41,11 +41,6 @@ const configs = [
       libraryTarget: 'umd',
       publicPath: '/main',
     },
-    plugins: [
-      new CopyPlugin({
-        patterns: [{from: path.join(__dirname, './Main/index.css')}],
-      }),
-    ],
   }),
   merge(webpackBaseConfig, {
     entry: path.join(__dirname, './integrator.js'),

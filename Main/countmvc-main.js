@@ -2,10 +2,7 @@ import React from 'react';
 
 export default (props) => {
     const handleClick = () => {
-        console.log('click');
         props.countManager.plus();
-        console.log('handleClick:', props.countManager);
-        props.countManager.notifyListeners();
     }
 
     return (

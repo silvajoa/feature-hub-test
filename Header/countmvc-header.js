@@ -5,7 +5,6 @@ export default class Header extends React.Component {
 
     componentDidMount() {
         this.props.countManager.subscribe(() => {
-            console.log('setState');
             this.setState({count: this.props.countManager.getCount()});
         })
     }

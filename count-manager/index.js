@@ -1,34 +1,31 @@
 class CountManager {
-    count = 0;
-    listeners = new Set();
-
     plus() {
-        this.count += 1;
-        console.log(this.count);
+        this.__proto__.count += 1;
+        this.notifyListeners();
     }
 
     minus() {
-        this.count -= 1;
-        console.log(this.count);
+        this.__proto__.count -= 1;
+        this.notifyListeners();
     }
 
     getCount() {
-        console.log(this.count);
-        return this.count;
+        return this.__proto__.count;
     }
 
     subscribe(listener) {
-        this.listeners.add(listener);
-        console.log('subscribe[this]:', this);
+        this.__proto__.listeners.add(listener);
 
-        return () => this.listeners.delete(listener);
+        return () => this.__proto__.listeners.delete(listener);
     }
 
     notifyListeners() {
-        console.log('notifyListeners[this]:', this);
-        this.listeners.forEach((listener) => listener());
+        this.__proto__.listeners.forEach((listener) => listener());
     }
 }
+
+CountManager.prototype.count = 0;
+CountManager.prototype.listeners = new Set();
 
 export const countManagerDefinition = {
     id: 'test:countmvc-count-manager',
