@@ -34,6 +34,7 @@ const configs = [
     entry: path.join(__dirname, './Main/index.js'),
     externals: {
       react: 'react',
+      '@feature-hub/react': '@feature-hub/react',
     },
     output: {
       path: path.join(websiteBuildDirname, 'main'),
@@ -42,6 +43,22 @@ const configs = [
       publicPath: '/main',
     },
   }),
+
+  merge(webpackBaseConfig, {
+    entry: path.join(__dirname, './OtherFeatureApp/index.js'),
+    externals: {
+      react: 'react',
+      '@feature-hub/react': '@feature-hub/react',
+    },
+    output: {
+      path: path.join(websiteBuildDirname, 'other'),
+      filename: 'feature-app-other.umd.js',
+      libraryTarget: 'umd',
+      publicPath: '/other',
+    },
+  }),
+
+
   merge(webpackBaseConfig, {
     entry: path.join(__dirname, './integrator.js'),
     output: {

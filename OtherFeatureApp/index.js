@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Main from './countmvc-main';
+import OtherFeatureApp from './countmvc-other';
 
 const featureAppDefinition = {
     dependencies: {
@@ -8,8 +8,8 @@ const featureAppDefinition = {
         featureServices: {'test:countmvc-count-manager': '^1.0.0'},
         // all required external dependencies are declared
         externals:{
-            "@feature-hub/react": "^2.0.0",
-            react: '^17.0.1'
+            react: '^17.0.1',
+            '@feature-hub/react': '^2.0.0',
         }
     },
 
@@ -17,7 +17,7 @@ const featureAppDefinition = {
         const countManager = env.featureServices['test:countmvc-count-manager'];
 
         return {
-            render: () => <Main countManager={countManager} featureAppId={"countmvc-main"} />,
+            render: () => <OtherFeatureApp countManager={countManager} />,
         };
     },
 }
